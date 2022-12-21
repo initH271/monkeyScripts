@@ -1,13 +1,14 @@
 // ==UserScript==
-// @name         hufe自动教学评价
-// @namespace    http://tampermonkey.net/
-// @version      0.1
-// @description  自动搞定hufe教学评价
+// @name         hufe自动教学评价（强智教务系统）
+// @namespace    https://github.com/initH271/monkeyScripts
+// @version      1.0
+// @description  自动搞定hufe教学评价, 仅在教学评价列表生效，如果出现弹窗未自动确认的情况，浏览器切换标签页即可，等待一会自动评价完毕
 // @author       inith271
-// @match       http://jiaowu2.hufe.edu.cn/jsxsd/xspj/xspj_edit.do*
-// @match       http://jiaowu2.hufe.edu.cn/jsxsd/xspj/xspj_list.do*
+// @match       http://*/xspj/xspj_edit.do*
+// @match       http://*/xspj/xspj_list.do*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=hufe.edu.cn
 // @grant        none
+// @license MIT
 // ==/UserScript==
 
 (function () {
