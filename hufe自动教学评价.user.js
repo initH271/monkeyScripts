@@ -1,11 +1,11 @@
 // ==UserScript==
 // @name         hufe自动教学评价（强智教务系统）
 // @namespace    https://github.com/initH271/monkeyScripts
-// @version      1.0
+// @version      1.1
 // @description  自动搞定hufe教学评价, 仅在教学评价列表生效，如果出现弹窗未自动确认的情况，浏览器切换标签页即可，等待一会自动评价完毕
 // @author       inith271
-// @match       http://*/xspj/xspj_edit.do*
-// @match       http://*/xspj/xspj_list.do*
+// @match       http://*.hufe.edu.cn/jsxsd/xspj/xspj_list.do*
+// @match       http://*.hufe.edu.cn/jsxsd/xspj/xspj_edit.do*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=hufe.edu.cn
 // @grant        none
 // @license MIT
@@ -48,13 +48,21 @@
                 window.alert = alert;
             }
         }, 2000)
+        let flag_l = false
 
         while (tr) {
-            if (document.evaluate("./td[1]/input", tr).iterateNext().value !== 16) {
-                document.evaluate("./td[2]/input", tr).iterateNext().click(); // 选择第一个
-            } else {
+            console.log(document.evaluate("./td[1]/input", tr).iterateNext().value)
+            if(!flag_l){
                 document.evaluate("./td[2]/input[3]", tr).iterateNext().click(); // 选择第二个
+                flag_l=true
+            }else{
+                document.evaluate("./td[2]/input", tr).iterateNext().click(); // 选择第一个
             }
+            //if (document.evaluate("./td[1]/input", tr).iterateNext().value !== 16) {
+            //    document.evaluate("./td[2]/input", tr).iterateNext().click(); // 选择第一个
+            //} else {
+            //    document.evaluate("./td[2]/input[3]", tr).iterateNext().click(); // 选择第二个
+            //}
             tr = trs.iterateNext();
         }
 
